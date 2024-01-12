@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: petshop
+  name: petstore
 spec:
   selector:
     matchLabels:
@@ -10,11 +10,11 @@ spec:
   template: 
     metadata:
       labels:
-        app: petshop
+        app: petstore
     spec:
       containers:
-      - name: petshop
-        image: vishnuvardhanyadhav/petshop:latest
+      - name: petstore
+        image: vishnuvardhanyadhav/petstore:latest
         ports:
         - containerPort: 8080
         imagePullPolicy: Always
@@ -22,11 +22,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: petshop
+  name: petstore
 spec:
   type: LoadBalancer
   selector:
-    app: petshop
+    app: petstore
   ports:
   - name: http
     protocol: TCP
